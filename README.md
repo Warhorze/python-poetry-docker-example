@@ -5,9 +5,9 @@
 
 ### Requirements
 
-- [Docker >= 17.05](https://www.python.org/downloads/release/python-381/)
-- [Python >= 3.7](https://www.python.org/downloads/release/python-381/)
-- [Poetry](https://github.com/python-poetry/poetry)
+- Docker >= 26.1
+- Python >= 3.9
+- Poetry
 
 
 ---
@@ -58,7 +58,7 @@ The Dockerfile uses multi-stage builds to run lint and test stages before buildi
 
 You can stop the build at specific stages with the `--target` option:
 
-        docker build --name poetry-project --file docker/Dockerfile . --target <stage>
+        docker build --tag poetry-project --file docker/Dockerfile . --target <stage>
 
 
 For example we wanted to stop at the **test** stage:
@@ -70,5 +70,5 @@ We could then get a shell inside the container with:
         docker run -it poetry-project:latest bash
 
 If you do not specify a target the resulting image will be the last image defined which in our case is the 'production' image.
-
+        docker run -p 8000:8000 --tag poetry-project
 
