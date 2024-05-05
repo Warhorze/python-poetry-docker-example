@@ -53,26 +53,34 @@ To run testing/linting locally you would execute lint/test in the [scripts direc
 ### Deployment
 
 Build images with:
-        
+```bash
         docker build --tag poetry-project --file docker/Dockerfile . 
-
+```
 The Dockerfile uses multi-stage builds to run lint and test stages before building the production stage.  If linting or testing fails the build will fail.
 
 You can stop the build at specific stages with the `--target` option:
-
+```bash
         docker build --tag poetry-project --file docker/Dockerfile . --target development
+```
 
 
 If you want to deploy the application:
+```bash
         docker run -p 8000:8000 --tag poetry-project
+```
 
 
 ### Development
 If you wantt to run the pipeline locally:
+```bash
         poetry run python backend/pipeline.py --model_id whisper-small --user_id 2
+```
 
 if you want to start the api locally:
-        poetry run uvicorn app.main:app --reload        
-
+```bash
+        poetry run uvicorn app.main:app --reload    
+```
 If you want to test the api locally:
+```bash
         curl -X POST http://localhost:8000/evaluate -H "Content-Type: application/json" -d @test_payload.json
+```
