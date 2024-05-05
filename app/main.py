@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
-from uniplot import histogram
+
 
 from backend.pipeline import main
 
