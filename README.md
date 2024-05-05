@@ -75,4 +75,4 @@ if you want to start the api locally:
         poetry run uvicorn app.main:app --reload        
 
 If you want to test the api locally:
-    curl -X POST http://localhost:8000/evaluate -H "Content-Type: application/json" -d @test_payload.json
+        curl -X POST http://localhost:8000/evaluate -H "Content-Type: application/json" -d @test_payload.json
