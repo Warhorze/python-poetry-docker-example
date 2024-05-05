@@ -38,6 +38,10 @@ Start a development server locally
 ```bash
         poetry run uvicorn app.main:app --reload    
 ```
+If you wantt to run the pipeline code
+```bash
+        poetry run python backend/pipeline.py --model_id whisper-small --user_id 2
+```
 
 
 API will be available at [localhost:8000/](http://localhost:8000/)
@@ -46,10 +50,6 @@ Swagger docs at [localhost:8000/docs](http://localhost:8000/docs)
 
 To run testing/linting locally you would execute lint/test in the [scripts directory](/scripts).
 
-If you wantt to run the pipeline locally:
-```bash
-        poetry run python backend/pipeline.py --model_id whisper-small --user_id 2
-```
 
 
 ---
