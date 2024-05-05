@@ -29,7 +29,7 @@ See the [poetry docs](https://python-poetry.org/docs/) for information on how to
 Run commands inside the virtual environment with:
 ```bash
         poetry run <your_command>
-
+```
 Spawn a shell inside the virtual environment with
 ```bash
         poetry shell
