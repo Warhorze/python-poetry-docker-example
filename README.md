@@ -21,22 +21,24 @@
 
 
 Create the virtual environment and install dependencies with:
-
+```bash
         poetry install
-
+```
 See the [poetry docs](https://python-poetry.org/docs/) for information on how to add/update dependencies.
 
 Run commands inside the virtual environment with:
-
+```bash
         poetry run <your_command>
 
 Spawn a shell inside the virtual environment with
-
+```bash
         poetry shell
-
+```
 Start a development server locally
+```bash
+        poetry run uvicorn app.main:app --reload    
+```
 
-        poetry run uvicorn app.main:app --reload --host localhost --port 8000
 
 API will be available at [localhost:8000/](http://localhost:8000/)
 
@@ -44,11 +46,15 @@ Swagger docs at [localhost:8000/docs](http://localhost:8000/docs)
 
 To run testing/linting locally you would execute lint/test in the [scripts directory](/scripts).
 
+If you wantt to run the pipeline locally:
+```bash
+        poetry run python backend/pipeline.py --model_id whisper-small --user_id 2
+```
+
 
 ---
 
 ## Docker
-
 
 ### Deployment
 
@@ -60,27 +66,12 @@ The Dockerfile uses multi-stage builds to run lint and test stages before buildi
 
 You can stop the build at specific stages with the `--target` option:
 ```bash
-        docker build --tag poetry-project --file docker/Dockerfile . --target development
+        docker build --tag whisperapp --file docker/Dockerfile . --target development
 ```
 
 
 If you want to deploy the application:
 ```bash
-        docker run -p 8000:8000 --tag poetry-project
+        docker run -p 8000:8000 whisperapp
 ```
 
-
-### Development
-If you wantt to run the pipeline locally:
-```bash
-        poetry run python backend/pipeline.py --model_id whisper-small --user_id 2
-```
-
-if you want to start the api locally:
-```bash
-        poetry run uvicorn app.main:app --reload    
-```
-If you want to test the api locally:
-```bash
-        curl -X POST http://localhost:8000/evaluate -H "Content-Type: application/json" -d @test_payload.json
-```
