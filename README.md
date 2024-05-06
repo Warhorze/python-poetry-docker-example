@@ -1,7 +1,7 @@
 # Poetry managed Python FastAPI application with Docker multi-stage builds
 
-### This repo serves as a minimal reference on setting up docker multi-stage builds with poetry
-
+### Whsiper FastAPI app
+This repo contains a fully deployable whisper FastAPI app (`/app` folder), the pipeline logic to process the audio files and transcribes them usin `openai\whisper` is captured in the `backend`.
 
 ### Requirements
 
@@ -50,8 +50,6 @@ Swagger docs at [localhost:8000/docs](http://localhost:8000/docs)
 
 To run testing/linting locally you would execute lint/test in the [scripts directory](/scripts).
 
-
-
 ---
 
 ## Docker
@@ -73,5 +71,11 @@ You can stop the build at specific stages with the `--target` option:
 If you want to deploy the application:
 ```bash
         docker run -p 8000:8000 whisperapp
+```
+You can run the application with a json file
+```bash
+curl -X POST http://localhost:8000/evaluate \
+-H "Content-Type: application/json" \
+-d @test_payload.json
 ```
 
