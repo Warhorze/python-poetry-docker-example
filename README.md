@@ -1,8 +1,8 @@
 # Poetry managed Python FastAPI application with Docker multi-stage builds
 
 ### Whsiper FastAPI app
-This repo contains a fully deployable whisper FastAPI app (`\app` folder), the pipeline logic to process the audio files and transcribes them with `openai\whisper` is captured in the `
-`\backend`.
+This repo contains a fully deployable whisper FastAPI app (``\app` folder), the pipeline logic to process the audio files and transcribes them with `openai\whisper` is captured in the `
+``\backend`.
 
 ### Requirements
 
